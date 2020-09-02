@@ -10,15 +10,13 @@ app.get('/', (req, res) => {
 app.use('/analyze', analyzeRoute)
 
 const unknownEndpoint = (req, res) => {
-  res.status(404).send({ error: 'unknown endpoint' })
+  res.status(400).send({ error: 'unknown endpoint' })
 }
 
 app.use(unknownEndpoint)
 
 const errorHandler = (error, req, res, next) => {
-  console.error(error.message)
   return res.status(400).send({ error: 'Text input is not valid. Please try again!' })
-
   next(error)
 }
 

@@ -7,5 +7,5 @@ workflows:
     jobs:
       - node/test
   heroku_deploy:
-  jobs:
-    - heroku/deploy-via-git
+    jobs:
+      - heroku/deploy-via-git

@@ -5,7 +5,7 @@ const {textLength, wordCount, characterCount} = require('../utils/textAnalyzer')
 router.post('/', (req, res) => {
     let text = req.body.text
 
-    if(!text || typeof text !== "string"){
+    if(typeof text !== "string"){
         throw new Error('Invalid Input')
     } else {
         text = text.toLowerCase();

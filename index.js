@@ -17,7 +17,7 @@ app.use(unknownEndpoint)
 
 const errorHandler = (error, req, res, next) => {
   return res.status(400).send({ error: 'Text input is not valid. Please try again!' })
-  next(error)
+  //next(error)
 }
 
 app.use(errorHandler)

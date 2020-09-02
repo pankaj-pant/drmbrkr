@@ -54,6 +54,15 @@ const app = require('../index')
         expect(res.body.error).toBe("unknown endpoint")
     })
 
+      //Testing the POST /unknown endpoint
+      it('should return error message', async () => {
+        const res = await supertest(app).post('/unknown')
+        .send({text: "hello 2 times"})
+        .set('Accept', 'application/json')
+        expect(res.statusCode).toBe(400)
+        expect(res.body.error).toBe("unknown endpoint")
+    })
+
       //Testing the POST /analyze endpoint
       it('should return error message', async () => {
         const res = await supertest(app).post('/analyze')
@@ -63,14 +72,12 @@ const app = require('../index')
         expect(res.body.error).toEqual('Text input is not valid. Please try again!')
     })
 
-    //Testing the POST /analyze endpoint
-    it('should return error message', async () => {
-      const res = await supertest(app).post('/analyze')
-      .send({sentence: "Does this work?"})
-      .set('Accept', 'application/json')
-      expect(res.status).toBe(400)
-      expect(res.body.error).toEqual('Text input is not valid. Please try again!')
-  })
-
-
+      //Testing the POST /analyze endpoint
+      it('should return error message', async () => {
+        const res = await supertest(app).post('/analyze')
+        .send({sentence: "Does this work?"})
+        .set('Accept', 'application/json')
+        expect(res.status).toBe(400)
+        expect(res.body.error).toEqual('Text input is not valid. Please try again!')
+    })
   })
